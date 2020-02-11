@@ -366,8 +366,9 @@ while running:
         if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
             obj.menu("pause")
         if event.type == pygame.KEYDOWN and event.key == pygame.K_t:
-            player.inventory -= 1
-            player.hp += 20
+            if player.inventory > 0:
+                player.inventory -= 1
+                player.hp += 20
     if player.hp <= 0:
         obj.menu("death")
     screen.fill((0, 0, 0))
